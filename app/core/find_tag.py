@@ -40,7 +40,6 @@ def read_html(html_list, mark, tags):
         with open(i, "r") as f:
             """Читаем строчки"""
             lines = f.readlines()
-            """"""
             """Выводим строки с их номером"""
             for number_of_line, line in enumerate(lines, start=1):
                 for tag in tags:
@@ -48,7 +47,7 @@ def read_html(html_list, mark, tags):
                         soup = BeautifulSoup(line, "lxml")
                         """Проходимся по тегам"""
                         for elem in soup.find_all(tag):
-                            """Если не находим атрибук с маркой то показываем где и какой тег, и на какой линии"""
+                            """Если не находим атрибут с маркой то показываем где и какой тег, и на какой линии"""
                             if not elem.has_attr(mark):
                                 print(
                                     f"Tag {tag} not contain {mark} in file {os.path.abspath(i)} at line {number_of_line}: {elem}"
